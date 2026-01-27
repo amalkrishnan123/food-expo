@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+       /* FORM WRAPPER */
+.form-wrapper {
+  max-width: 520px;
+  margin: 60px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* TITLE */
+.form-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 800;
+  color: #b30000;
+  margin-bottom: 10px;
+}
+
+.form-subtitle {
+  text-align: center;
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* FORM */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* GROUP */
+.form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+  color: #222;
+}
+
+/* INPUTS */
+.register-form input,
+.register-form textarea,
+.register-form select {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.register-form textarea {
+  resize: none;
+  height: 90px;
+}
+
+/* FOCUS */
+.register-form input:focus,
+.register-form textarea:focus,
+.register-form select:focus {
+  border-color: #1e6bd6;
+  box-shadow: 0 0 0 3px rgba(30,107,214,0.1);
+}
+
+/* ERRORS */
+.errorlist {
+  margin-top: 6px;
+  color: #d32f2f;
+  font-size: 13px;
+  list-style: none;
+  padding-left: 0;
+}
+
+/* SUBMIT BUTTON */
+.submit-btn {
+  margin-top: 10px;
+  background: linear-gradient(135deg, #1e6bd6, #0047ab);
+  color: #fff;
+  border: none;
+  padding: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(30,107,214,0.25);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .form-wrapper {
+    padding: 30px 20px;
+    margin: 40px 16px;
+  }
+
+  .form-title {
+    font-size: 26px;
+  }
+}
+</style>
+    </head>
+    <body>
+        <div class="form-wrapper">
+  <h2 class="form-title">Register for the Expo</h2>
+  <p class="form-subtitle">
+    Join Kerala’s biggest Food Startup Conclave 2026
+  </p>
+
+  <form method="post" class="register-form">
+    {% csrf_token %}
+
+    {{ form.non_field_errors }}
+
+    <div class="form-group">
+      <label>Full Name</label>
+      {{ form.name }}
+      {{ form.name.errors }}
+    </div>
+
+    <div class="form-group">
+      <label>Email Address</label>
+      {{ form.email }}
+      {{ form.email.errors }}
+    </div>
+
+    <div class="form-group">
+      <label>Mobile Number</label>
+      {{ form.mobile }}
+      {{ form.mobile.errors }}
+    </div>
+
+    <div class="form-group">
+      <label>Address</label>
+      {{ form.address }}
+      {{ form.address.errors }}
+    </div>
+
+    <div class="form-group">
+      <label>Category</label>
+      {{ form.category }}
+      {{ form.category.errors }}
+    </div>
+
+    <button type="submit" class="submit-btn">
+      Register Now
+    </button>
+  </form>
+</div>
+    </body>
+</html>
