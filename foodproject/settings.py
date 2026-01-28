@@ -121,6 +121,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 RAZORPAY_KEY_ID = "rzp_test_xxxxxxxxxx"
 RAZORPAY_KEY_SECRET = "xxxxxxxxxxxxxxxx"
